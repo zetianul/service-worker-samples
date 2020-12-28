@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service worker缓存</title>
+    <style>
+        img{
+            width: fit-content;
+            height: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <h2>1秒后刷新图片</h2>
+    
+</body>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./sw.js')
+    .then((reg) => console.log('注册成功！', reg))
+    .catch((err) => console.log('sw注册失败', err));
+  });
+}
+setTimeout(() => {
+    let img = document.createElement('img');
+    img.src = './changzeyamei.jpg'
+
+    document.body.appendChild(img)
+
+    fetch('./heihei.gif')
+    // .then(res => res.json())
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+}, 1000)
+</script>
+</html>
