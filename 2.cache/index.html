@@ -16,13 +16,13 @@
     
 </body>
 <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('./sw.js')
-    .then((reg) => console.log('注册成功！', reg))
-    .catch((err) => console.log('sw注册失败', err));
-  });
-}
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', function() {
+//     navigator.serviceWorker.register('./sw.js')
+//     .then((reg) => console.log('注册成功！', reg))
+//     .catch((err) => console.log('sw注册失败', err));
+//   });
+// }
 setTimeout(() => {
     let img = document.createElement('img');
     img.src = './changzeyamei.jpg'
@@ -30,7 +30,6 @@ setTimeout(() => {
     document.body.appendChild(img)
 
     fetch('./heihei.gif')
-    // .then(res => res.json())
     .then(res => console.log(res))
     .catch(err => console.log(err))
 }, 1000)
